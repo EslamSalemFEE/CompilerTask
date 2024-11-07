@@ -1,0 +1,14 @@
+C:\Users\Eslam\source\repos\CompilerTask\bin\Debug\net8.0\CompilerTask.exe
+C:\Users\Eslam\source\repos\CompilerTask\bin\Debug\net8.0\CompilerTask.deps.json
+C:\Users\Eslam\source\repos\CompilerTask\bin\Debug\net8.0\CompilerTask.runtimeconfig.json
+C:\Users\Eslam\source\repos\CompilerTask\bin\Debug\net8.0\CompilerTask.dll
+C:\Users\Eslam\source\repos\CompilerTask\bin\Debug\net8.0\CompilerTask.pdb
+C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\CompilerTask.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\CompilerTask.AssemblyInfoInputs.cache
+C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\CompilerTask.AssemblyInfo.cs
+C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\CompilerTask.csproj.CoreCompileInputs.cache
+C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\CompilerTask.dll
+C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\refint\CompilerTask.dll
+C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\CompilerTask.pdb
+C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\CompilerTask.genruntimeconfig.cache
+C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\ref\CompilerTask.dll

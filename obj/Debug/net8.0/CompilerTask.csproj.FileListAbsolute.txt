@@ -12,3 +12,4 @@ C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\refint\CompilerTask.dl
 C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\CompilerTask.pdb
 C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\CompilerTask.genruntimeconfig.cache
 C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\ref\CompilerTask.dll
+C:\Users\Eslam\source\repos\CompilerTask\obj\Debug\net8.0\CompilerTask.sourcelink.json

@@ -41,67 +41,79 @@ public class CppScanner
 
 	private static Dictionary<string, string> operators = new Dictionary<string, string>()
 	{
-		{"=", "assignment operator"},
-		{"+", "addition operator"},
-		{"-", "subtraction operator"},
-		{"*", "multiplication operator"},
-		{"/", "division operator"},
-		{"%", "modulus operator"},
-		{"++", "increment operator"},
-		{"--", "decrement operator"},
-		{"==", "equality operator"},
-		{"+=", "addition assignment operator"},
-		{"-=", "subtraction assignment operator"},
-		{"!=", "inequality operator"},
-		{">", "greater than operator"},
-		{"<", "less than operator"},
-		{">=", "greater than or equal to operator"},
-		{"<=", "less than or equal to operator"},
-		{"&&", "logical AND operator"},
-		{"||", "logical OR operator"},
-		{"!", "logical NOT operator"},
-		{"<<", "left shift operator"},
-		{">>", "right shift operator"},
-		{"&", "bitwise AND operator"},
-		{"|", "bitwise OR operator"},
-		{"^", "bitwise XOR operator"},
-		{"~", "bitwise NOT operator"},
-		{"?", "ternary operator"}
+		{"=", "operator"},
+		{"+", "operator"},
+		{"-", "operator"},
+		{"*", "operator"},
+		{"/", "operator"},
+		{"%", "operator"},
+		{"++", "operator"},
+		{"--", "operator"},
+		{"==", "operator"},
+		{"+=", "operator"},
+		{"-=", "operator"},
+		{"!=", "operator"},
+		{">", "operator"},
+		{"<", "operator"},
+		{">=", "operator"},
+		{"<=", "operator"},
+		{"&&", "operator"},
+		{"||", "operator"},
+		{"!", "operator"},
+		{"<<", "operator"},
+		{">>", "operator"},
+		{"&", "operator"},
+		{"|", "operator"},
+		{"^", "operator"},
+		{"~", "operator"},
+		{"?", "operator"}
 	};
 
 	private static Dictionary<string, string> specialCharacters = new Dictionary<string, string>()
 	{
-		{"(", "left parenthesis"},
-		{")", "right parenthesis"},
-		{"{", "left brace"},
-		{"}", "right brace"},
-		{"[", "left bracket"},
-		{"]", "right bracket"},
-		{";", "semicolon"},
-		{",", "comma"},
-		{".", "dot operator"},
-		{":", "colon"},
-		{"::", "scope resolution operator"},
-		{"#", "preprocessor directive"}
+		{"(", "Special Character"},
+		{")", "Special Character"},
+		{"{", "Special Character"},
+		{"}", "Special Character"},
+		{"[", "Special Character"},
+		{"]", "Special Character"},
+		{";", "Special Character"},
+		{",", "Special Character"},
+		{".", "Special Character"},
+		{":", "Special Character"},
+		{"::", "Special Character"},
+		{"#", "Special Character"}
 	};
 
 	public static void Analyze(string code)
 	{
 		// Regular expressions for token patterns
 		var patterns = new Dictionary<string, string>
+	{
+		{ "SingleLineComment", @"//.*" }, // Matches single-line comments
+        { "MultiLineComment", @"/\*.*?\*/" }, // Matches multi-line comments
+        { "Keyword", @"\b(int|double|float|char|const|for|while|if|else|return|void)\b" },
+		{ "Identifier", @"\b[a-zA-Z_][a-zA-Z0-9_]*\b" },
+		{ "Operator", @"(\+{1,2}|-{1,2}|==|!=|<=|>=|&&|\|\||[=+\-*/%<>!])" },
+		{ "NumericConstant", @"\b\d+(\.\d+)?([eE][+-]?\d+)?\b" }, // matches numbers like 3.4, 3.4e+6
+        { "SpecialCharacter", @"[;,\(\)\{\}\.\[\]]" } // added dot and brackets as special characters
+    };
+
+		// Check if there's a single-line comment
+		var commentMatch = Regex.Match(code, patterns["SingleLineComment"]);
+		if (commentMatch.Success)
 		{
-			{ "Comment", @"//.*" },  // Matches comments from // to end of line
-			{ "Keyword", @"\b(int|double|float|char|const|for|while|if|else|return|void)\b" },
-			{ "Identifier", @"\b[a-zA-Z_][a-zA-Z0-9_]*\b" },
-			{ "Operator", @"(\+{1,2}|-{1,2}|==|!=|<=|>=|&&|\|\||[=+\-*/%<>!])" },
-			{ "NumericConstant", @"\b\d+(\.\d+)?([eE][+-]?\d+)?\b" }, // for numbers like 3.4, 3.4e+6
-            { "SpecialCharacter", @"[;,\(\)\{\}]" }
-		};
+			// Print comment token separately
+			Console.WriteLine($"Token -> {commentMatch.Value.Trim()}, Description -> comment");
 
-		// Split the code into words based on whitespace and special characters
-		var tokens = Regex.Split(code, @"(\s+|;|,|\(|\)|\{|\})");
+			// Analyze code before the comment
+			code = code.Substring(0, commentMatch.Index);
+		}
 
-		foreach (var token in tokens)
+		// Split tokens using a pattern that separates operators and special characters
+		var tokenParts = Regex.Split(code, @"(\s+|;|,|\(|\)|\{|\}|\[|\]|\+|\-|\*|\/|%|=|==|!=|<=|>=|&&|\|\||<|>)");
+
+		foreach (var token in tokenParts)
 		{
 			string trimmedToken = token.Trim();
 
@@ -110,9 +122,23 @@ public class CppScanner
 
 			bool matched = false;
 
+			// Check each pattern to see if the token matches
 			foreach (var pattern in patterns)
 			{
-				if (Regex.IsMatch(trimmedToken, pattern.Value))
+				if (pattern.Key == "NumericConstant" && trimmedToken.Contains("."))
+				{
+					// Special handling for numeric constants with multiple dots
+					foreach (char ch in trimmedToken)
+					{
+						if (char.IsDigit(ch))
+							Console.WriteLine($"Token -> {ch}, Description -> numeric");
+						else if (ch == '.')
+							Console.WriteLine($"Token -> {ch}, Description -> special character");
+					}
+					matched = true;
+					break;
+				}
+				else if (Regex.IsMatch(trimmedToken, pattern.Value))
 				{
 					string description;
 
@@ -151,7 +177,9 @@ public class CppScanner
 		}
 	}
 
-public static void Main()
+
+
+	public static void Main()
 	{
 		Console.WriteLine("Enter C++ code (leave an empty line to finish):");
 
@@ -172,4 +200,3 @@ public static void Main()
 		}
 	}
 }
-

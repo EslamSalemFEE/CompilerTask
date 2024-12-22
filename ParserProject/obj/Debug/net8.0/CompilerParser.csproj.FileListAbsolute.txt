@@ -1,0 +1,14 @@
+D:\Academic education\Compiler\Lab\CompilerParser\bin\Debug\net8.0\CompilerParser.exe
+D:\Academic education\Compiler\Lab\CompilerParser\bin\Debug\net8.0\CompilerParser.deps.json
+D:\Academic education\Compiler\Lab\CompilerParser\bin\Debug\net8.0\CompilerParser.runtimeconfig.json
+D:\Academic education\Compiler\Lab\CompilerParser\bin\Debug\net8.0\CompilerParser.dll
+D:\Academic education\Compiler\Lab\CompilerParser\bin\Debug\net8.0\CompilerParser.pdb
+D:\Academic education\Compiler\Lab\CompilerParser\obj\Debug\net8.0\CompilerParser.GeneratedMSBuildEditorConfig.editorconfig
+D:\Academic education\Compiler\Lab\CompilerParser\obj\Debug\net8.0\CompilerParser.AssemblyInfoInputs.cache
+D:\Academic education\Compiler\Lab\CompilerParser\obj\Debug\net8.0\CompilerParser.AssemblyInfo.cs
+D:\Academic education\Compiler\Lab\CompilerParser\obj\Debug\net8.0\CompilerParser.csproj.CoreCompileInputs.cache
+D:\Academic education\Compiler\Lab\CompilerParser\obj\Debug\net8.0\CompilerParser.dll
+D:\Academic education\Compiler\Lab\CompilerParser\obj\Debug\net8.0\refint\CompilerParser.dll
+D:\Academic education\Compiler\Lab\CompilerParser\obj\Debug\net8.0\CompilerParser.pdb
+D:\Academic education\Compiler\Lab\CompilerParser\obj\Debug\net8.0\CompilerParser.genruntimeconfig.cache
+D:\Academic education\Compiler\Lab\CompilerParser\obj\Debug\net8.0\ref\CompilerParser.dll
